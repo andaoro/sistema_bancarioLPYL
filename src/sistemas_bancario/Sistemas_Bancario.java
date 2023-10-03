@@ -51,6 +51,8 @@ public class Sistemas_Bancario {
                         System.out.println("Digite el id de la cuenta de la que desea consignar");
                         Actualizar_Saldo(5,cuentas);
                         break;
+                    default:
+                        System.out.println("Seleccione una opcion valida");
                 }
             }
         } while (decisiones_menu != 0);
@@ -134,7 +136,8 @@ public class Sistemas_Bancario {
             Cuenta_Bancaria cuenta_destino = buscarCuentaPorID(cuentas,id_final);
             
             if(cuenta_destino != null){
-                if(cuenta.getSaldo_cuenta() <= valor){
+                System.out.println("-----------------");
+                if(valor <= cuenta.getSaldo_cuenta()){
                     cuenta.Restar_saldo(valor);
                     cuenta_destino.Sumar_saldo(valor);
                     System.out.println("Transaccion Exitosa");
